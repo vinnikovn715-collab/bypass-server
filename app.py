@@ -29,10 +29,6 @@ def real_bypass(link):
             if d_match:
                 return {"token": d_match.group(1)}
         
-        hidden_match = re.search(r'<input[^>]+name="token"[^>]+value="([^"]+)"', html)
-        if hidden_match:
-            return {"token": hidden_match.group(1)}
-        
         if "captcha" in html.lower():
             return {"error": "captcha"}
             
